@@ -1,0 +1,94 @@
+// Button
+//
+// Button in various color and size versions.
+
+
+// Block
+// --------------------------------------------------
+.btn
+  background: transparent
+  padding: 11px 25px
+  font-family: $font-family-base
+  font-weight: $bold
+  font-size: $font-size-base
+  letter-spacing: 0.05em
+  border: 2px solid
+  border-radius: 30px
+  white-space: nowrap
+  cursor: pointer
+  display: inline-block
+  width: auto
+  height: auto
+  box-sizing: border-box
+  color: $text-color
+  border-color: $text-color
+  background-color: transparent
+  &:hover, &:focus
+    text-decoration: none
+    transition: color 250ms, border-color 250ms, background 250ms
+    color: white
+    border-color: $text-color
+    background-color: $text-color
+
+.btn + .btn
+  margin-left: 15px
+
+
+// Modifiers
+// --------------------------------------------------
+.btn--block
+  width: 100%
+  display: block
+  max-width: none
+  text-align: center
+  & + &
+    margin: 25px 0 0
+
+.btn--xs
+  padding: 3px 10px 4px
+
+.btn--sm
+  padding: 7px 20px 9px
+
+.btn--lg
+  padding: 15px 35px
+  border-radius: 30px
+
+.btn--light
+  color: white
+  border-color: white
+  background-color: transparent
+  &:hover, &:focus
+    color: $text-color
+    border-color: white
+    background-color: white
+    font-weight: $bold
+
+.btn--primary
+  color: white
+  border-color: $brand-primary
+  background-color: $brand-primary
+  &:hover, &:focus
+    color: $brand-primary
+    border-color: $brand-primary
+    background-color: transparent
+    font-weight: $bold
+
+.btn--link
+  border: none
+  padding-left: 0
+  padding-right: 0
+  color: $brand-primary
+  border-color: $brand-primary
+  background-color: transparent
+  &:hover, &:focus
+    color: $brand-primary
+    border-color: $brand-primary
+    background-color: transparent
+    text-decoration: underline
+
+.btn--disabled,
+.btn[disabled]
+  opacity: 0.15
+  cursor: not-allowed
+  pointer-events: none

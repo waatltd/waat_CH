@@ -1,0 +1,189 @@
+//
+// Mixins
+// --------------------------------------------------
+
+// Responsive utilities
+//
+// More easily include all the states for responsive-utilities.sass.
+// [converter] $parent hack
+=responsive-visibility($parent)
+  #{$parent}
+    display: block !important
+
+  table#{$parent}
+    display: table !important
+  tr#{$parent}
+    display: table-row !important
+  th#{$parent},
+  td#{$parent}
+    display: table-cell !important
+
+
+// [converter] $parent hack
+=responsive-invisibility($parent)
+  #{$parent}
+    display: none !important
+
+
+// Breakpoints
+=breakpoint($min: null, $max: null)
+  // Declare breakpoint value variables
+  $min-width: null !default
+  $max-width: null !default
+
+  // Always interpret min value since it is cardinal.
+  @if $min == lg or $min == wide-desktop
+    $min-width: $screen-lg-min
+  @else if $min == md or $min == desktop
+    $min-width: $screen-md-min
+  @else if $min == sm or $min == tablet
+    $min-width: $screen-sm-min
+  @else if $min == xs or $min == phone
+    $min-width: $screen-xs-min
+  // Iinterpret also pixel value.
+  @else
+    $min-width: $min
+
+  // Interpret also max value if defined.
+  @if $max
+    @if $max == md or $max == desktop
+      $max-width: $screen-md-max
+    @else if $max == sm or $max == tablet
+      $max-width: $screen-sm-max
+    @else if $max == xs or $max == phone
+      $max-width: $screen-xs-max
+    // Iinterpret also pixel value.
+    @else
+      $max-width: $max
+
+    // Render min and max breakpoint if both are defined
+    @media (min-width: $min-width) and (max-width: $max-width)
+      @content
+
+  // Else render only min breakpoint
+  @else
+    @media (min-width: $min-width)
+      @content
+
+
+// Helper mixins
+//
+// Mixins that are including CSS that is often used.
+
+// Clearfix prevents overflowing of floated elements.
+=clearfix
+  &:after
+    content: ''
+    display: table
+    clear: both
+
+// Make given element container.
+=container($container-width)
+  width: 100% !important
+  max-width: $container-width + ($container-paddings*2)
+  margin: 0 auto
+  padding: 0 $container-paddings
+  box-sizing: border-box
+
+// Center element hoizontally or vertically
+=center($position: 'horizontal')
+  @if $position == horizontal
+    display: block
+    margin-left: auto
+    margin-right: auto
+  @else if $position == vertical
+    position: relative
+    top: 50%
+    transform: translateY(-50%)
+
+// Full page overlay
+=overlay($darken: true)
+  position: fixed
+  top: 0
+  right: 0
+  bottom: 0
+  left: 0
+  z-index: 100
+  @if $darken
+    background-color: transparentize($gray-base, 0.8)
+
+// Style input placeholder
+=placeholder()
+  &::-moz-placeholder
+    @content
+  &:-ms-input-placeholder
+    @content
+  &::-webkit-input-placeholder
+    @content
+
+// Define maximum rows of text in the element
+=max-rows($rows)
+  overflow: hidden
+  display: -webkit-box
+  -webkit-line-clamp: $rows
+  -webkit-box-orient: vertical
+
+// Make all children comma separated
+=comma-separated()
+  & + &::before
+    content: ', '
+
+// Set display of all childrens of the given element to inline.
+=inline()
+  *
+    display: inline !important
+
+// Colours half of a background with specified color
+=half-background($bg: $brand-primary-light, $side: "right")
+  @media (max-width: $screen-xs-max)
+    background-color: $bg
+  +breakpoint(tablet)
+    &:before
+      content: ''
+      position: fixed
+      top: 0
+      width: 50%
+      height: 100%
+      background-color: $bg
+      z-index: -100
+      @if $side == "right"
+        right: 0
+      @else
+        left: 0
+
+// Triangle build from borders.
+=triangle($direction, $color, $width)
+  content: ''
+  display: block
+  position: absolute
+  width: 0
+  height: 0
+  border-style: solid
+  @if $direction == "top"
+    border:
+      width: 0 $width*0.666 $width $width*0.666
+      color: transparent transparent $color transparent
+  @else if $direction == "right"
+    border:
+      width: $width*0.666 0 $width*0.666 $width
+      color: transparent transparent transparent  $color
+  @else if $direction == "bottom"
+    border:
+      width: $width $width*0.666 0 $width*0.666
+      color: $color transparent transparent transparent
+  @else if $direction == "left"
+    border:
+      width: $width*0.666 $width $width*0.666 0
+      color: transparent $color transparent transparent
+
+// Form item input height.
+=input-height($height)
+  .form__input
+    height: $height
+    line-height: $height - ($height/3)
+    padding-top: $height/6
+    padding-bottom: $height/6
+    &[type=file]
+      line-height: $height * 0.45
+  select.form__input:not([multiple])
+    background-position: calc(100% - 15px) $height/2-2px, calc(100% - 10px) $height/2-2px

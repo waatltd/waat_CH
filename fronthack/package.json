@@ -1,0 +1,81 @@
+{
+  "_from": "fronthack-repo",
+  "_id": "fronthack-repo@2.5.2",
+  "_inBundle": false,
+  "_integrity": "sha1-SK2zdaSH0SBWfCE5rSGI3rCcyfc=",
+  "_location": "/fronthack-repo",
+  "_phantomChildren": {},
+  "_requested": {
+    "type": "tag",
+    "registry": true,
+    "raw": "fronthack-repo",
+    "name": "fronthack-repo",
+    "escapedName": "fronthack-repo",
+    "rawSpec": "",
+    "saveSpec": null,
+    "fetchSpec": "latest"
+  },
+  "_requiredBy": [
+    "#USER",
+    "/"
+  ],
+  "_resolved": "https://registry.npmjs.org/fronthack-repo/-/fronthack-repo-2.5.2.tgz",
+  "_shasum": "48adb375a487d120567c2139ad2188deb09cc9f7",
+  "_spec": "fronthack-repo",
+  "_where": "/Applications/MAMP/htdocs/waat_CH",
+  "author": {
+    "name": "Michal Kokocinski",
+    "email": "michal@kokocinski.me",
+    "url": "http://kokocinski.me"
+  },
+  "bugs": {
+    "url": "https://github.com/frontcraft/fronthack-repo/issues"
+  },
+  "bundleDependencies": false,
+  "deprecated": false,
+  "description": "Repository with a file structure, which is served by the Fronthack CLI",
+  "devDependencies": {
+    "flexboxgrid-sass": "^8.0.5",
+    "gh-pages": "^1.0.0",
+    "gulp": "~3.9.1",
+    "gulp-autoprefixer": "^3.1.1",
+    "gulp-delete-lines": "0.0.7",
+    "gulp-imagemin": "^3.4.0",
+    "gulp-jsmin": "^0.1.5",
+    "gulp-mustache": "~2.3.0",
+    "gulp-rename": "~1.2.2",
+    "gulp-sass": "~3.1.0",
+    "gulp-server-livereload": "^1.9.2",
+    "gulp-watch": "~4.3.11",
+    "imagemin-jpeg-recompress": "^5.1.0",
+    "vinyl-fs": "^2.4.4"
+  },
+  "engines": {
+    "node": ">=0.10.0"
+  },
+  "homepage": "http://fronthack.com",
+  "keywords": [
+    "css",
+    "sass",
+    "html",
+    "bem",
+    "smacss",
+    "ui",
+    "framework",
+    "styleguide",
+    "gulp"
+  ],
+  "license": "MIT",
+  "main": "gulpfile.js",
+  "name": "fronthack-repo",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/frontcraft/fronthack-repo.git"
+  },
+  "scripts": {
+    "build": "gulp build",
+    "deploy": "gh-pages -d dist",
+    "dev": "gulp dev"
+  },
+  "version": "2.5.2"
+}

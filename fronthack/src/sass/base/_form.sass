@@ -1,0 +1,340 @@
+// Form
+//
+// Minimalistic, fully hackable form framework. All elements are made with pure CSS.
+
+// Form item elements
+//
+// Form item is independent group of elements, which combined togeher build
+// fully customizable form widget. Form item may consist of following elements:
+// 1. Input
+// 2. Label
+// 3. Help text
+// 4. Addon icon (envelope on example below)
+// Styleguide 1.2.1
+
+// Basic inputs
+//
+// All types of text inputs, file inputs, selects, textarea, checkboxes, radios
+// and action buttons are avaliable.
+//
+// Markup: html/form-basic.html
+//
+// Styleguide 1.2.2
+
+
+// Custom inputs
+//
+// More acttractive elements for wider user experience.
+//
+// Markup: html/form-custom.html
+//
+// Styleguide 1.2.3
+
+
+// States
+//
+// Input states to communicate error, success or disabled input. Contains styles
+// for help text and inside addon.
+//
+// Markup: html/form-states.html
+//
+// Styleguide 1.2.4
+
+
+// Input layouts
+//
+// Compose form items into various layouts with these modifier classes and 
+// .form__inline wrapping element.
+//
+// Markup: html/form-layouts.html
+//
+// Styleguide 1.2.5
+
+
+
+$form-item-width: 300px
+$form-item-height: 40px
+$form-item-margin: 30px
+$form-item-font-size: $font-size-base
+$form-item-bg: $gray-lighter
+$form-item-inline-label-width: 130px
+
+// Block
+// --------------------------------------------------
+.form
+  margin: 0
+
+
+// Elements
+// --------------------------------------------------
+.form__item
+  margin: 0 0 $form-item-margin
+  position: relative
+  width: $form-item-width
+  overflow: visible
+  box-sizing: border-box
+  max-width: 100%
+  +input-height($form-item-height)
+// Table layout integration
+td, th
+  &.form__item
+    margin: 0
+    padding: 0
+    vertical-align: middle
+
+
+.form__label
+  display: block
+  margin: 0
+  font-size: $font-size-small
+  text-transform: none
+  font-weight: $bold
+
+
+.form__actions
+  margin-top: $form-item-margin * 3
+  button,
+  input[type="button"],
+  input[type="submit"]
+    margin: 0
+
+
+.form__input
+  width: 100%
+  margin: 0
+  border: 2px solid transparent
+  border-radius: 0
+  box-sizing: border-box
+  font-size: $form-item-font-size
+  transition: all 200ms ease-in
+  background-color: $form-item-bg
+  padding-left: 10px
+  padding-right: 10px
+  +placeholder
+    color: $gray-dark
+.form__item textarea.form__input
+  height: auto !important
+  resize: vertical
+select.form__input
+  -webkit-appearance: none
+  padding-right: 30px
+  cursor: pointer
+  // Custom caret:
+  &:not([multiple])
+    background:
+      image: linear-gradient(45deg, transparent 50%, $text-color 50%), linear-gradient(135deg, $text-color 50%, transparent 50%)
+      size: 5px 5px, 5px 5px
+      repeat: no-repeat
+  &[multiple]
+    height: auto
+  &:-webkit-autofill
+    background-color: $body-bg !important
+    transition: background-color 5000s ease-in-out 0s
+
+
+.form__radio
+  display: block
+.form__checkbox
+  display: block
+  position: relative
+  input
+    margin-right: 10px
+    &::before
+      content: ''
+      display: block
+      position: absolute
+      width: 16px
+      height: 16px
+      top: 4px
+      left: 0
+      background-color: $almost-white
+      cursor: pointer
+      border: 2px solid $gray-light
+      border-radius: 2px
+    &:checked
+      &::before
+        background-color: $gray-dark
+        border: 2px solid $gray-dark
+      &::after
+        content: '✓'
+        display: block
+        font-family: monospace
+        position: absolute
+        width: 18px
+        height: 18px
+        line-height: 18px
+        top: 5px
+        left: 1px
+        font-size: 18px
+        text-align: center
+        color: white
+        cursor: pointer
+
+
+.form__help
+  position: absolute
+  top: 100%
+  display: block
+  margin: 0
+  font-size: $font-size-xsmall
+  line-height: normal
+  color: $gray-dark
+
+
+.form__addon
+  position: absolute
+  top: $line-height-base
+  right: $form-item-height / 3
+  font-size: $form-item-font-size * 0.8
+  line-height: $form-item-height
+
+
+.form__inline
+  display: flex
+  & > * + *
+    margin-left: 10px
+    &.form__item--label-inline .form__label
+      min-width: auto
+      max-width: auto
+
+// Modifiers
+// --------------------------------------------------
+.form__item--inline
+  width: 100%
+  .form__checkbox,
+  .form__radio
+    display: inline-block
+    white-space: nowrap
+    margin-right: 20px
+    &:last-of-type
+      margin-left: 0
+
+.form__item--inline-label
+  display: flex
+  flex-direction: column
+  width: 100%
+  .form__label
+    order: -1
+  +breakpoint(tablet)
+    align-items: center
+    justify-content: flex-end
+    flex-direction: row
+    flex-wrap: wrap
+    .form__label
+      margin-right: 10px
+      min-width: $form-item-inline-label-width
+      max-width: $form-item-inline-label-width
+      text-align: right
+      white-space: nowrap
+    .form__input,
+    .form__checkbox,
+    .form__radio,
+    .form__help
+      flex: 0 0 calc(100% - #{$form-item-inline-label-width + 10})
+    .form__help
+      min-width: calc(100% - #{$form-item-inline-label-width + 10})
+
+
+.form__item--custom
+  .form__checkbox
+    input
+      position: relative
+      width: 36px
+      height: 14px
+      display: inline-block
+      background-color: $gray-light
+      margin: 0 5px 0 0
+      padding: 0
+      border-radius: 7px
+      -webkit-appearance: none
+      border: none
+      outline: 0
+      vertical-align: middle
+      transform: translateY(-1px)
+      cursor: pointer
+      &::before
+        content: none
+      &::after
+        content: ''
+        display: block
+        width: 20px
+        height: 20px
+        position: absolute
+        left: 0
+        top: -3px
+        background-color: $gray-lighter
+        border: 1px solid darken($gray-lighter, 5%)
+        border-radius: 10px
+        box-sizing: border-box
+      &:checked
+        background-color: $green
+        &::after
+          left: auto
+          right: 0
+
+.form__item--combined
+  display: flex
+  .form__input
+    width: auto
+    flex-grow: 1
+    border-top-right-radius: 0
+    border-bottom-right-radius: 0
+    margin-right: -1px
+  .btn
+    margin: 0
+    border-top-left-radius: 0
+    border-bottom-left-radius: 0
+    height: $form-item-height
+    line-height: $form-item-height
+    white-space: nowrap
+    padding:
+      top: 0
+      bottom: 0
+
+
+
+
+// States
+// --------------------------------------------------
+.form__input:focus
+  border: 2px solid $brand-primary
+  box-shadow: none
+  outline-width: 0
+  & ~ .form__label
+    color: inherit !important
+
+
+*[disabled]
+  opacity: 0.5
+  cursor: not-allowed
+input[disabled],
+textarea[disabled],
+select[disabled],
+*[disabled] input,
+*[disabled] textarea,
+*[disabled] select,
+*[disabled] .form__checkbox,
+*[disabled] .form__radio
+  pointer-events: none
+
+.form__item.has-success
+  .form__label,
+  .form__addon,
+  .form__help,
+  .form__checkbox,
+  .form__radio
+    color: darken($green, 5%)
+  .form__input:not(:focus)
+    border-color: lighten($green, 10%)
+
+
+.form__item.has-error
+  .form__label,
+  .form__addon,
+  .form__help,
+  .form__checkbox,
+  .form__radio
+    color: darken($red, 15%)
+  .form__input:not(:focus)
+    border-color: lighten($red, 15%)
+    background-color: lighten($red, 53%)

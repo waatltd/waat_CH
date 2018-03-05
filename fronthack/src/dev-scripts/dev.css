@@ -1,0 +1,143 @@
+/* Store designs in `designs`folder in jpg/png extensions and paste its
+   URL into proper modifier classes here.
+
+   Add following code at the end of the compared html file
+   (ex. src/index.html):
+   <div class="designs designs--name"></div>
+*/
+
+:root {
+  --designs-width: 1280px;
+  --gray-dark: #242424;
+  --gray-light: #3d3d3d;
+}
+
+
+#fronthack-toggler {
+  position: fixed;
+  bottom: -1px;
+  right: -1px;
+  width: 40px;
+  height: 40px;
+  text-align: center;
+  background-color: var(--gray-dark);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-image: url('icons/code.png');
+  background-size: 24px 24px;
+  border: 1px solid var(--gray-light);
+  border-top-left-radius: 2px;
+  z-index: 1000;
+  cursor: pointer;
+}
+#fronthack-toggler:hover {
+  filter: brightness(1.5);
+}
+.show-designs #fronthack-toggler {
+  background-image: url('icons/picture-o.png');
+}
+.show-code-designs #fronthack-toggler {
+  background-image: url('icons/picture-o.png'), url('icons/code.png');
+  background-position: 3px 1px, calc(100% - 1px) calc(100% + 1px);
+  background-size: 24px 24px;
+}
+
+#fronthack-download {
+  position: fixed;
+  display: none;
+  right: 42px;
+  bottom: -1px;
+  padding: 8px 4px;
+  width: 45px;
+  background-color: var(--gray-dark);
+  color: white;
+  font-size: 12px;
+  line-height: 12px;
+  text-align: center;
+  border: 1px solid var(--gray-light);
+  border-top-left-radius: 2px;
+  border-top-right-radius: 2px;
+  z-index: 1000;
+  letter-spacing: 0;
+}
+#fronthack-download:hover {
+  filter: brightness(1.5);
+}
+
+#fronthack-canvas {
+  position: absolute;
+  display: none;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  cursor: crosshair;
+}
+
+.bem-block {
+  position: absolute;
+  box-sizing: border-box;
+  padding: 3px 2px;
+  line-height: normal;
+  font-size: 10px;
+  font-weight: bold;
+  font-family: monospace;
+  white-space: nowrap;
+}
+.bem-block::before {
+  content: '';
+  display: block;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  box-sizing: border-box;
+  border: 2px dashed yellow;
+  mix-blend-mode: difference;
+}
+.bem-block:not(.drawing):hover::before {
+  box-shadow: inset 0 0 20px yellow;
+}
+.bem-block[bem-name]::after {
+  content: "."attr(bem-name);
+  background-color: var(--gray-light);
+  color: white;
+  padding: 1px 3px 2px 1px;
+  position: relative
+}
+
+/* Manage classes of toggled mode. */
+.show-designs,
+.show-code-designs {
+  position: relative;
+  height: 9999px;
+}
+
+.show-designs .designs,
+.show-code-designs .designs {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  height: 9999px;
+  width: var(--designs-width);
+  margin: 0 calc(var(--designs-width) / -2);
+  background-position: top;
+  background-size: contain;
+  background-repeat: no-repeat;
+  z-index: -100;
+}
+
+.show-designs > *:not([id*="fronthack"]):not(.designs) {
+  opacity: 0;
+}
+
+.show-code-designs > *:not([id*="fronthack"]):not(.designs) {
+  opacity: 0.8;
+}
+
+.show-designs #fronthack-canvas {
+  display: block;
+}
+
+/* Modifiers for each html page created by `fronthack design` command. */
