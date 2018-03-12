@@ -7,28 +7,37 @@
 //## Global colors definitions.
 
 //** Gray scale declarations
+$almost-black: #242424
+$black-two: #313131
+$brownish-grey: #6a6464
 $gray-base: #101c27
 $gray-dark: #555555
+$greyish: #b9b9b9
+$pale-grey-two: #d8dfe5
+$pale-grey: #f4f8fb
+$warm-grey: #797979
 $gray-light: #d8d8d8
 $gray-lighter: #f5f6f8
 $gray-lightest: #fafafa
 $almost-white: #fdfdfd
+$white: #ffffff
 
 //** Color declarations
+$purple: #4a66b0
 $turquoise: #1fc59c
 $turquoise-light: #00ffac
 $green: #00a651
 $yellow: #ffd429
-$red: #e50038
+$red: #e51a20
 
 
 //** Primary brand colors assigment
-$brand-primary: $turquoise
+$brand-primary: $red
 $brand-primary-light: $turquoise-light
 
 //** Global colors assigment
 $body-bg:          $almost-white
-$text-color:       $gray-base
+$text-color:       $pale-grey-two
 $link-color:       $brand-primary
 $link-color-hover: lighten($link-color, 15%)
 
@@ -38,19 +47,25 @@ $link-color-hover: lighten($link-color, 15%)
 //## Font, line-height, headings, and more.
 
 // Font families
+$font-family-nexa: "Nexa", Georgia, "Times New Roman", Times, serif
+$font-family-nexa-black: "Nexa-black","Nexa", Georgia, "Times New Roman", Times, serif
+$font-family-nexa-bold: "Nexa-bold","Nexa", Georgia, "Times New Roman", Times, serif
+$font-family-nexa-heavy: "Nexa-heavy","Nexa", Georgia, "Times New Roman", Times, serif
 $font-family-serif: "Roboto Slab", Georgia, "Times New Roman", Times, serif
 $font-family-sans-serif: "Roboto", sans-serif
-$font-family-base: $font-family-sans-serif
+$font-family-base: $font-family-nexa
 $font-family-headings: $font-family-serif
 
 // Font sizes
-$font-size-xsmall: 12px
-$font-size-small: 14px
-$font-size-base: 16px
+$font-size-xsmall: 14px
+$font-size-small: 16px
+$font-size-base: 20px
 $font-size-large: 24px
+$font-size-larger: 36px
+$font-size-xlarge: 52px
 
 // Line height and bottom margin
-$line-height-base: 26px
+$line-height-base: 1.6
 $paragraphs-margin: $line-height-base
 
 // Font weights
@@ -85,6 +100,6 @@ $screen-md-max:              ($screen-lg-min - 1)
 // Sidepaddings of a container on mobile devices
 $container-paddings: 15px
 // Maximum width of the containers
-$container-max-width: 1000px
+$container-max-width: 1140px
 $container-narrow-max-width: 700px
 $container-wide-max-width: 1400px

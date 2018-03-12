@@ -1,0 +1,54 @@
+// Products
+//
+//
+
+
+// Block
+// --------------------------------------------------
+// .products
+
+// Elements
+// --------------------------------------------------
+.products__item
+  margin-top: 30px
+  +breakpoint(desktop)
+    align-items: center
+    display: flex
+
+.products__item-details
+  +breakpoint(desktop)
+    flex-basis: 70%
+    border-right: 1px solid $pale-grey
+
+.products__item-title
+  font-size: 42px
+  font-family: $font-family-nexa-heavy
+  color: $purple
+  font-weight: 900
+  +breakpoint($screen-lg-min)
+    font-size: $font-size-xlarge
+
+.products__item-description
+  font-size: $font-size-small
+  line-height: 2
+  color: $warm-grey
+  padding-right: 80px
+  margin: 15px 0 40px 0
+
+.products__item-thumbnail
+  img
+
+  +breakpoint(desktop)
+    img
+      margin-left: 40px
+      max-width: 90%
+
+.products__btn-wrapper
+  text-align: center
+  margin-bottom: 30px
+  +breakpoint(desktop)
+    text-align: left
+
+// Modifiers
+// --------------------------------------------------
+// .products--modifier

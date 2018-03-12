@@ -1,12 +1,18 @@
-$(window).bind("styleguide:onRendered", function(e) {
-  $(".owl-carousel").owlCarousel({
-    loop: true,
+
+$(document).ready(function(){
+  $('.owl-carousel').owlCarousel({
+    autoplay: true,
     items: 1,
-    autoPlay: true,
+    smartSpeed: 1000,
+    loop: true,
+    margin: 50,
     nav: true,
+    // touchDrag: false,
+    // pullDrag: false,
+    // mouseDrag: false,
     navText: [
       "<i class='icon icon--arrow-left'>",
       "<i class='icon icon--arrow-right'>"
-    ]
+     ]
   });
-});
+  });

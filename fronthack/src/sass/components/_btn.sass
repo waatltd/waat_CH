@@ -7,28 +7,30 @@
 // --------------------------------------------------
 .btn
   background: transparent
-  padding: 11px 25px
-  font-family: $font-family-base
-  font-weight: $bold
-  font-size: $font-size-base
+  padding: 15px 50px
+  min-width: 300px
+  font-family: $font-family-nexa-black
+  font-size: $font-size-small
   letter-spacing: 0.05em
   border: 2px solid
-  border-radius: 30px
   white-space: nowrap
   cursor: pointer
   display: inline-block
   width: auto
   height: auto
   box-sizing: border-box
-  color: $text-color
-  border-color: $text-color
-  background-color: transparent
+  color: $white
+  border-color: $almost-black
+  background-color: $almost-black
+  text-transform: uppercase
   &:hover, &:focus
     text-decoration: none
     transition: color 250ms, border-color 250ms, background 250ms
-    color: white
-    border-color: $text-color
-    background-color: $text-color
+    color: $almost-black
+    border-color: $white
+    background-color: $white
+  +breakpoint(tablet)
+    padding: 15px 60px 14px 60px
 
 .btn + .btn
   margin-left: 15px
@@ -36,6 +38,14 @@
 
 // Modifiers
 // --------------------------------------------------
+.btn--red
+  border-color: $brand-primary
+  background-color: $brand-primary
+  &:hover, &:focus
+    border-color: $white
+    background-color: $white
+    color: $brand-primary
+
 .btn--block
   width: 100%
   display: block

@@ -1,6 +1,96 @@
 // Section footer
 // --------------------------------------------------
-.layout-footer
-  padding: 60px 0
-  background-color: $gray-lighter
-  font-size: $font-size-small
+
+// Elements
+// --------------------------------------------------
+.footer__wrapper
+  text-align: center
+  +breakpoint(tablet)
+    text-align: left
+    display: flex
+    color: $white
+    font-size: $font-size-small
+
+.contact__wrapper
+  +breakpoint(tablet)
+    flex-basis: 65%
+
+.contact__wrapper :nth-child(2)
+  margin-top: 50px
+
+
+.contact__logo
+  img
+    width: 86px
+
+.contact__title
+  margin-top: 30px
+  font-size: $font-size-large
+  line-height: 1.5
+
+.contact__text
+  margin-top: 10px
+  font-size: $font-size-xsmall
+  color: $greyish
+  line-height: 1.4
+
+.contact__data
+  font-size: $font-size-xsmall
+  margin-top: 10px
+  color: $greyish
+  i
+    padding-right: 5px
+
+.contact__social
+  position: relative
+  margin-top: 30px
+  padding: 40px 0
+  text-align: center
+  .contact__social-title
+    font-family: $font-family-nexa-heavy
+    font-size: 18px
+    font-weight: 900
+    color: $white
+  ul
+    list-style: none
+    padding: 0
+    margin: 0
+    margin-top: 10px
+  li
+    margin-bottom: 10px
+    display: inline-block
+    padding-right: 5px
+
+.contact-image
+  width: 35px
+
+.form-control
+  width: 300px
+  min-height: 40px
+  +breakpoint(tablet)
+    width: 400px
+
+.contact__content-form
+  padding: 80px 0 24px 0
+  font-family: $font-family-nexa-heavy
+  font-size: $font-size-large
+
+.contact__box
+  font-family: $font-family-nexa-bold
+  font-size: 16px
+  text-transform: uppercase
+  background-color: $purple
+  text-align: center
+  padding: 15px
+  margin-top: -10px
+  color: #fff
+  width: 305px
+  border: none
+  +breakpoint(tablet)
+    width: 405px
+  &:hover
+    background-color: lighten($purple, 10%)
+
+
+// Dependencies
+// --------------------------------------------------

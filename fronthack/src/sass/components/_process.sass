@@ -1,0 +1,83 @@
+// Process
+//
+//
+
+
+// Block
+// --------------------------------------------------
+// .process
+
+// Elements
+// --------------------------------------------------
+.process__box-wrapper
+  margin-top: 75px
+  div.process__box:nth-last-child(1)
+    margin-bottom: 50px
+
+.process__box
+  border-radius: 5px
+  background-color: $black-two
+  padding: 30px 0 10px 0
+  margin-bottom: 30px
+  +breakpoint(tablet)
+    display: flex
+    align-items: center
+    padding: 39px 39px 41px 30px
+
+
+.process__box-heading
+  display: flex
+  justify-content: center
+  align-items: center
+  padding-bottom: 10px
+  img
+    margin-right: 20px
+    max-width: 70px
+    height: auto
+    object-fit: contain
+  +breakpoint(tablet)
+    padding: 0
+    justify-content: flex-start
+    img
+      margin-right: 45px
+      max-width: 100px
+
+
+.process__box-title
+  display: inline-block
+  font-size: $font-size-large
+  line-height: 1
+  color: $white
+  +breakpoint(tablet)
+    font-size: 30px
+    min-width: 205px
+  +breakpoint(desktop)
+    min-width: 245px
+
+.process__box-label
+  font-size: 10px
+  color: $warm-grey
+  +breakpoint(tablet)
+    font-size: $font-size-xsmall
+
+
+.process__box-description
+  color: $pale-grey-two
+  padding: 13px 25px
+  font-size: $font-size-xsmall
+  +breakpoint(tablet)
+    padding: 13px 39px 12px 49px
+    border-left: 1px solid $brownish-grey
+    font-size: $font-size-base
+
+.process__footer
+  color: $pale-grey-two
+  margin-top: 34px
+
+// Modifiers
+// --------------------------------------------------
+.process__box-heading--smaller
+  +breakpoint(tablet)
+    img
+      padding: 0 10px
+      max-width: 80px

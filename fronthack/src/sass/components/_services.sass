@@ -1,0 +1,48 @@
+// Services
+//
+//
+
+
+// Block
+// --------------------------------------------------
+.services__wrapper
+  display: flex
+  margin-top: 30px
+  flex-flow: row wrap
+  position: relative
+  align-items: bottom
+  justify-content: space-around
+
+.services__item
+  flex: 0 1 calc(50% - 8px)
+  text-align: center
+  margin-bottom: 25px
+  +breakpoint(tablet)
+    flex: 0 1 calc(33% - 8px)
+
+.services__item-image
+  margin-bottom: 22px
+  height: 100px
+  width: auto
+  img
+    object-fit: contain
+
+.services__item-description
+  margin: 0 auto
+  max-width: 240px
+  font-size: 20px
+  color: $almost-black
+
+.services__btn-wrapper
+  margin-top: 10px
+
+// Elements
+// --------------------------------------------------
+// .services__element
+
+// Modifiers
+// --------------------------------------------------
+.services__item-image--bigger
+  +breakpoint(tablet)
+    height: 160px
+    margin-bottom: 30px
