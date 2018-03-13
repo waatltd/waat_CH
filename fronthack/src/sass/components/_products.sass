@@ -36,8 +36,6 @@
   margin: 15px 0 40px 0
 
 .products__item-thumbnail
-  img
-
   +breakpoint(desktop)
     img
       margin-left: 40px
@@ -51,4 +49,7 @@
 
 // Modifiers
 // --------------------------------------------------
-// .products--modifier
+.products__item-thumbnail--mobile
+  margin-bottom: 20px
+  +breakpoint(desktop)
+    display: none

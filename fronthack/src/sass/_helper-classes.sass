@@ -42,6 +42,16 @@
 .hidden
   display: none
 
+.hidden--xs
+  display: none
+  +breakpoint(tablet)
+    display: block
+
+.hidden--md
+  display: none
+  +breakpoint(desktop)
+    display: block
+
 // Full container's width
 .full-width
   width: 100%

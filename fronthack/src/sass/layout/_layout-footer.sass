@@ -84,8 +84,11 @@
   border: none
   +breakpoint(tablet)
     width: 405px
-  &:hover
-    background-color: lighten($purple, 10%)
+  &:hover, &:focus
+    transition: color 250ms, border-color 250ms, background 250ms
+    border-color: $purple
+    background-color: $white
+    color: $purple
 
 
 // Modifiers

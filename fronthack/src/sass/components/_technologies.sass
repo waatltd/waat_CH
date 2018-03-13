@@ -23,6 +23,10 @@
   margin-bottom: 25px
   +breakpoint(desktop)
     flex: 1
+  @media all and (-ms-high-contrast: none), (-ms-high-contrast: active)
+    flex: 0 1 33%
+    +breakpoint(desktop)
+      flex: 1
 
 .technologies__item-image
   margin-bottom: 22px
